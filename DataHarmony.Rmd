@@ -37,7 +37,7 @@ harmonize("protein", links, ProteinHarmony)
 ```
 
 ```{r}
-harmonize("basal", links, BasalHarmony)
+harmonize("basal", links, CalciumHarmony, basal = TRUE)
 ```
 
 ```{r}

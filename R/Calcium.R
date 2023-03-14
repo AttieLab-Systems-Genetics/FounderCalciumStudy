@@ -1,7 +1,32 @@
-CalciumHarmony <- function(dataset, links, ...) {
+CalciumHarmony <- function(dataset, links, basal = FALSE, ...) {
   filename <- linkpath(dataset, links)
   
   # Data are in sheets 1 and 2 starting on line 1.
+  
+  calcium <- 
+    # Matlab by animal (sheet 2)
+    read_excel(filename, sheet = 2) %>%
+    
+    # Put key columns in front.
+    select(Strain, Sex, Animal, condition, everything()) %>%
+    
+    # Rename to harmonize.
+    rename(strain = "Strain",
+           sex = "Sex",
+           animal = "Animal") %>%
+    
+    # Pivot traits, which now begin after `condition`.
+    pivot_longer(-(strain:condition),
+                 names_to = "trait", values_to = "value")
+  
+  if(basal) {
+    return(
+      calcium %>%
+        # Filter out Basal, which will be in separate dataset.
+        filter(condition == "Basal") %>%
+        select(-condition))
+  }
+    
   bind_rows(
     # Spectral density data (sheet 1)
     read_excel(filename, sheet = 1) %>%
@@ -21,27 +46,7 @@ CalciumHarmony <- function(dataset, links, ...) {
       pivot_longer(-(strain:condition),
                    names_to = "trait", values_to = "value"),
 
-    # Matlab by animal (sheet 2)
-    read_excel(filename, sheet = 2) %>%
-      
-      # Put key columns in front.
-      select(Strain, Sex, Animal, condition, everything()) %>%
-      
-      # Rename to harmonize.
-      rename(strain = "Strain",
-             sex = "Sex",
-             animal = "Animal") %>%
-      
-      # Pivot traits, which now begin after `condition`.
-      pivot_longer(-(strain:condition),
-                   names_to = "trait", values_to = "value") %>%
-      
+    calcium %>%
       # Filter out Basal, which will be in separate dataset.
-      filter(condition != "Basal")) %>%
-    
-    # Normal scores by trait
-    group_by(trait) %>%
-    mutate(value = foundr::nqrank(value, jitter = TRUE)) %>%
-    ungroup()
-  
+      filter(condition != "Basal"))
 }
