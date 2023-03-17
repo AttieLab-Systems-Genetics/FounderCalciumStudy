@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
 ```{r}
@@ -32,7 +32,7 @@ links <- read.csv(file.path("data", "source.csv"), fill = TRUE)
 harmonize("calcium", links, CalciumHarmony)
 ```
 
-```{r}
+```{r warning=FALSE}
 # Warning: attempting model selection on an essentially perfect fit is nonsense.
 # This happens for traits that are subsequently dropped.
 harmonize("protein", links, ProteinHarmony)
