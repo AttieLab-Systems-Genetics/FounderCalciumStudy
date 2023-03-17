@@ -1,21 +1,25 @@
 # Founder Calcium Study
 
 Goal: Stimulating insulin secretion in beta cells yields calcium activity. Compare across
-founders of both sexes with protein mRNA. 
+founders of both sexes with protein mRNA. See web tool at
+<https://rstudio.it.wisc.edu/FounderCalciumStudy>.
+(Currently at <https://data-viz.it.wisc.edu/FounderCalciumStudy/>
+and password protected.)
 
-Chris Emfinger <emfinger@wisc.edu> added a folder in the research drive `/Volumes/adattie/General/founder_calcium_website` in a new subfolder called `updated files`. The `correlations` subfolder should have the correlation data with the updated nomenclature to be more matched term for term.
+Founder dataset consists of [8 CC mice strains](https://www.jax.org/news-and-insights/2009/april/the-collaborative-cross-a-powerful-systems-genetics-tool), and both sexes, possibly crossed with experimental conditions. Select one or more traits after deciding dataset(s) and trait order. Traits window supports partial matching to find desired traits. Facet plots by strain or `sex` or `sex_condition` and subset `strain`s if desired. Plots and data summaries can be downloaded.
 
-Also in the subfolder is `raw_data` (each animal's average for the calcium in the calcium study). I included the proteomic raw data as well. Please note that the individual animal IDs from the proteomic study and the calcium study are not related. The two studies use different animal sets.
+There are three conditions for calcium measurements (`8G`, `8G/QLA`, `8G/QLA/GIP`)
+but no conditions for protein mRNA measurements in liver.
+Conditions and trait are combined for `calcium` (such as `8G:freq_8_1`) or separate for `calcium8G`.
+Distinct mice were assayed for `calcium` and `protein` (4 for `strain` and `sex`).
 
-The relevant data and a small ppt summarizing our "artists' impression" of what the resource might look like are on the [UW ResearchDrive](https://it.wisc.edu/services/researchdrive/) at </Volumes/adattie/General/founder_calcium_website/>.
+- `calcium`: calcium traces & spectral density with condition
+- `protein`: mRNA expression on liver
+- `basal`: calcium basal measurements
 
-The first file (Calcium_parameter_data.xlsx) would be used to plot the distributions of the various calcium parameters (the boxplots in the slides). It has two tabs. We moved the islets through four solutions and analyzed the calcium trace segments in each solution. The tools we used to analyze the islet calcium waves gave us certain parameters describing their shapes and were made in Matlab (matlab data tab) and R (the spectral density data tab). 
+See also 
 
-For the matlab data tab, the column names for columns A-F and H-K are calcium parameters. The "condition" column (column G) defines what solution the islets were in for the period of time that the analysis was performed. Columns L-N describe the mice (strain, sex and ID). 
+- [Attie Lab Diabetes Database](http://diabetes.wisc.edu/)
+- GitHub: [byandell/FounderCalciumStudy](https://github.com/byandell/FounderCalciumStudy).
 
-Basal calcium "condition" is used to normalize some of the other measurements but is of interest itself as a measurement because it can be an indicator of islet functionality. 
-
-For the spectral density tab, A-D describe the calcium parameters related to spectral density. Column E is the animal ID, column F is the solution the islets were in for that trace segment analyzed, and column G and H describe the mouse strain and sex, respectively. 
-
-Data for this github repository are identified by a local `data/source.csv`,
-which is not saved with the repo. Data are not included with the repository.
+![](https://github.com/byandell/FounderCalciumStudy/blob/main/resource_figure.png?raw=true "Conditions and Parameters")

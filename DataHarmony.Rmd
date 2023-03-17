@@ -33,6 +33,8 @@ harmonize("calcium", links, CalciumHarmony)
 ```
 
 ```{r}
+# Warning: attempting model selection on an essentially perfect fit is nonsense.
+# This happens for traits that are subsequently dropped.
 harmonize("protein", links, ProteinHarmony)
 ```
 
