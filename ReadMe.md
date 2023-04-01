@@ -2,9 +2,9 @@
 
 Goal: Stimulating insulin secretion in beta cells yields calcium activity. Compare across
 founders of both sexes with protein mRNA. See web tool at
-<https://rstudio.it.wisc.edu/FounderCalciumStudy>.
-(Currently at <https://data-viz.it.wisc.edu/FounderCalciumStudy/>
-and password protected.)
+<https://data-viz.it.wisc.edu/FounderCalciumStudy/>
+(future home: <https://rstudio.it.wisc.edu/FounderCalciumStudy>).
+Data can be downloaded from [Dryad](https://datadryad.org/stash/dataset/doi:10.5061/dryad.j0zpc86jc).
 
 Founder dataset consists of [8 CC mice strains](https://www.jax.org/news-and-insights/2009/april/the-collaborative-cross-a-powerful-systems-genetics-tool), and both sexes, possibly crossed with experimental conditions. Select one or more traits after deciding dataset(s) and trait order. Traits window supports partial matching to find desired traits. Facet plots by strain or `sex` or `sex_condition` and subset `strain`s if desired. Plots and data summaries can be downloaded.
 
