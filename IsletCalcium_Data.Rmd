@@ -20,7 +20,8 @@ Data for this repository are identified by `data/source.csv`,
 which is not saved with the repo.
 
 ```{r}
-links <- read_csv(file.path("data", "source.csv"))
+links <- read_csv(file.path("data", "source.csv")) %>%
+  mutate(address = file.path("data", address))
 ```
 
 # Background
