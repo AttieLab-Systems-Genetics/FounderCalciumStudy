@@ -1,5 +1,5 @@
 shortname,address,longname
-calcium,Calcium_parameter_data_v2.xlsx,"Calcium traits"
-protein,raw_proteomics_data.xlsx,"Liver proteins"
-cor_prot_calc,Protein_to_calcium_correlations_v2.xlsx,
-basal,Calcium_parameter_data_v2.xlsx,"Basal measurements"
+calcium,data/Calcium_parameter_data_v2.xlsx,"Calcium traits"
+protein,data/raw_proteomics_data.xlsx,"Liver proteins"
+cor_prot_calc,data/Protein_to_calcium_correlations_v2.xlsx,
+basal,data/Calcium_parameter_data_v2.xlsx,"Basal measurements"

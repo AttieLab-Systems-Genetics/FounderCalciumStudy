@@ -25,21 +25,26 @@ for(filename in list.files("R", full.names = TRUE)) {
 # Harmonize Data
 
 ```{r}
+normalize <- FALSE
+```
+
+
+```{r}
 links <- read.csv(file.path("data", "source.csv"), fill = TRUE)
 ```
 
 ```{r}
-harmonize("calcium", links, CalciumHarmony)
+harmonize("calcium", links, CalciumHarmony, normalize = normalize)
 ```
 
 ```{r warning=FALSE}
 # Warning: attempting model selection on an essentially perfect fit is nonsense.
 # This happens for traits that are subsequently dropped.
-harmonize("protein", links, ProteinHarmony)
+harmonize("protein", links, ProteinHarmony, normalize = normalize)
 ```
 
 ```{r}
-harmonize("basal", links, CalciumHarmony, basal = TRUE)
+harmonize("basal", links, CalciumHarmony, basal = TRUE, normalize = normalize)
 ```
 
 ```{r}
